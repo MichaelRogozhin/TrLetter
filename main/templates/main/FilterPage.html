@@ -1,0 +1,38 @@
+{% extends "wrapper.html" %}
+
+
+{% block content %}
+
+<h3>Фильтр</h3>
+
+<br>
+
+<form action="" method=post enctype=multipart/form-data>
+  {% csrf_token %}
+
+  <p>
+  {{ form.FilterDate1.label }}<br>
+  {{ form.FilterDate1 }}
+  </p>
+
+  <p>
+  {{ form.FilterDate2.label }}<br>
+  {{ form.FilterDate2 }}
+  </p>
+
+  <br>
+  <br>
+
+  <a href="{% url "LettersListView" %}" class="btn btn-info btn-lg">Назад</a>
+  <input type=submit value="Применить фильтр" class="btn btn-warning btn-lg">
+
+</form>
+
+<br>
+
+
+{% endblock %}
+
+
+
+

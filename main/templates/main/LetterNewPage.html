@@ -1,0 +1,41 @@
+{% extends "wrapper.html" %}
+
+
+{% block content %}
+
+    <h3>Новое письмо</h3>
+    <br>
+
+    <form action="{% url "LetterNewView" %}" method=post enctype=multipart/form-data>
+      {% csrf_token %}
+
+        <p>
+        {{ form.Subject.label }}<br>
+        {{ form.Subject }}
+        </p>
+
+        <p>
+        {{ form.Body.label }}<br>
+        {{ form.Body }}
+        </p>
+
+        <p>
+        {{ form.Typel.label }}<br>
+        {{ form.Typel }}
+        </p>
+
+        <p>
+        {{ form.ShopId.label }}<br>
+        {{ form.ShopId }}
+        </p>
+
+      <br>
+      <br>
+
+      <a href="{% url "LettersListView" %}" class="btn btn-info btn-lg">Назад</a>
+      <input type="submit" value="Сохранить" class="btn btn-warning btn-lg"/>
+
+    </form>
+
+
+{% endblock %}

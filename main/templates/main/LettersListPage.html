@@ -1,0 +1,42 @@
+{% extends "wrapper.html" %}
+
+
+{% block content %}
+
+    <h3>Дашборд</h3>
+    <br>
+
+    <table class="table table-hover" width="800">
+    <tr>
+    <th>№ п/п</th>
+    <th>Тема письма</th>
+    <th>Дата-время</th>
+    <th>Тип письма</th>
+    <th>ID магазина</th>
+    <th>Кол-во отправок</th>
+    <th>Кол-во открытий</th>
+    <th></th>
+    </tr>
+
+    {% for record in reclist %}
+      <tr>
+      <td>{{forloop.counter}}</td>
+      <td>{{record.subject}}</td>
+      <td>{{record.dt|date:"j.m.Y H:i:s"}}</td>
+      <td>{{record.typel_name}}</td>
+      <td>
+        {% if record.shop_id %}
+          {{record.shop_id}}
+        {% else %}
+        {% endif %}
+      </td>
+      <td>{{record.count_send}}</td>
+      <td>{{record.count_open}}</td>
+      <td></td>
+      </tr>
+    {% endfor %}
+    </table>
+
+
+
+{% endblock %}

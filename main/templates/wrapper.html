@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie-edge">
+    <title>TrLetter</title>
+    {% load staticfiles %}
+
+<!--    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" type="text/css"> -->
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" type="text/css">
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+
+  <div class="jumbotron" style="min-height: 100vh;margin-bottom: 0;">
+
+    <table cellpadding="0" cellspacing="0" width="100%">
+      <tr>
+      <td width="75%">
+        <h1>TrLetter</h1>
+      </td>
+      <td width="25%" align="center" valign="top">
+      </td>
+      <tr>
+    </table>
+
+    <p>
+      <a href="/" class="btn btn-success btn-lg">&#127968;</a>
+      <a href="/letters" class="btn btn-info btn-lg">Дашборд</a>
+      <a href="/filter" class="btn btn-info btn-lg">Фильтр</a>
+      <a href="/letter_new" class="btn btn-info btn-lg">Новое письмо</a>
+    </p>
+
+    {% block content %}
+    {% endblock %}
+  </div>
+
+  <div class="container">
+    &copy; Все права защищены 2019
+  </div>
+
+</body>
+
+</html>
