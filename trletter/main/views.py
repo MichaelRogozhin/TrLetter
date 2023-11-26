@@ -1,5 +1,4 @@
-# -*- coding: utf-8 -*-
-from __future__ import unicode_literals
+from django.shortcuts import render
 
 import datetime
 from datetime import timedelta
@@ -12,6 +11,7 @@ from main.forms import LetterNewForm
 from main.forms import FilterForm
 
 # Create your views here.
+
 
 def TYPEL_NAMES(typel):
     if typel == 1:
@@ -103,4 +103,3 @@ class LetterNewView(View):
         else:
             return self.get(request, *args, **kwargs)
 #            return super(LetterNewView, self).get(request, *args, **kwargs)
-

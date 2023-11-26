@@ -1,8 +1,8 @@
 "# TrLetter"
 
 Используются:
-Python 2.7
-Django 1.11
+Python 3.8
+Django 3.2
 PostgreSQL 10
 
 
