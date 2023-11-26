@@ -18,7 +18,8 @@
 `pip install -r requirements.txt`
 
 Запуск:
-```cd trletter
+```
+cd trletter
 python manage.py runserver
 ```
 
