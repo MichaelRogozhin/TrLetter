@@ -84,3 +84,40 @@ python manage.py runserver 0.0.0.0:8000
 в браузере на любой машине
 http://<адрес_сервера>:8000/
 
+
+Доставить для продакшн (gunicorn, nginx)
+----------------------------------------
+
+1) gunicorn
+
+pip install gunicorn
+
+Нужно настроить автозапуск gunicorn через sytemd.
+См. https://docs.gunicorn.org/en/latest/deploy.html или мой файл gunicorn.txt
+
+Кратко. Создаются файлы
+/etc/systemd/system/gunicorn.service
+    WorkingDirectory=/opt/TrLetter/trletter
+    ExecStart=/opt/TrLetter/venv/bin/gunicorn trletter.wsgi
+/etc/systemd/system/gunicorn.socket
+
+systemctl enable --now gunicorn.socket
+После этого gunicorn работает как обычный сервис (systemctl status/start/stop/restart)
+
+2) nginx
+
+sudo apt update
+sudo apt install nginx
+
+
+в nginx sites-enabled/default надо добавить
+        location / {
+            proxy_pass http://unix:/run/gunicorn.sock;
+        }
+        location /static/ {
+            root /opt/TrLetter/trletter/main/;
+            expires 1d;
+        }
+
+nginx -t
+systemctl restart nginx
