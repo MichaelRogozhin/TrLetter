@@ -47,12 +47,9 @@ Deploy on Linux
 ```
 cd /opt
 git clone https://github.com/MichaelRogozhin/TrLetter.git
-```
 
-```
 apt install postgresql  (на Debian11 в январе 2024 поставилась версия 13.13)
 su - postgres -c psql
-```
 
     CREATE DATABASE trletterdb;
     \l
@@ -68,6 +65,7 @@ python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
 nano /etc/postgresql/13/main/pg_hba.conf
+```
     заменить
     local   all             all                                     peer
     на
