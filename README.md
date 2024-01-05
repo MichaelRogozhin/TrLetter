@@ -65,7 +65,6 @@ python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
 nano /etc/postgresql/13/main/pg_hba.conf
-```
     заменить
     local   all             all                                     peer
     на
@@ -82,6 +81,7 @@ su - postgres -c psql
 nano trletter/settings.py
     поправить ALLOWED_HOSTS например на ['*']
 python manage.py runserver 0.0.0.0:8000
+```
 
 в браузере на любой машине
 http://<адрес_сервера>:8000/
