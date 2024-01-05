@@ -81,15 +81,15 @@ su - postgres -c psql
 nano trletter/settings.py
     поправить ALLOWED_HOSTS например на ['*']
 python manage.py runserver 0.0.0.0:8000
-```
 
 в браузере на любой машине
 http://<адрес_сервера>:8000/
-
+```
 
 Доставить для продакшн (gunicorn, nginx)
 ----------------------------------------
 
+```
 1) gunicorn
 
 pip install gunicorn
@@ -123,3 +123,4 @@ sudo apt install nginx
 
 nginx -t
 systemctl restart nginx
+```
