@@ -6,8 +6,8 @@
 - PostgreSQL 10
 
 
-Deploy on Windows
-=================
+Deploy and run on Windows
+=========================
 
 Создание виртуального окружения Python:
 `python -m venv venv`
@@ -26,7 +26,6 @@ Deploy on Windows
 Все параметры по умолчанию
 - выполнить миграции
 ```
-cd trletter
 python manage.py migrate
 ```
 - выполнить скрипт наполнения данных `db/letters.sql`
@@ -34,7 +33,6 @@ python manage.py migrate
 
 Запуск:
 ```
-cd trletter
 python manage.py runserver
 ```
 
