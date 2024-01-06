@@ -68,7 +68,6 @@ nano /etc/postgresql/13/main/pg_hba.conf
     на
     local   all             all                                     md5
     (созданного пользователя trletteruser нет как системного пользователя, поэтому peer не работает)
-cd trletter
 python manage.py migrate
 
 su - postgres -c psql
@@ -98,7 +97,7 @@ pip install gunicorn
 
 Кратко. Создаются файлы
 /etc/systemd/system/gunicorn.service
-    WorkingDirectory=/opt/TrLetter/trletter
+    WorkingDirectory=/opt/TrLetter
     ExecStart=/opt/TrLetter/venv/bin/gunicorn trletter.wsgi
 /etc/systemd/system/gunicorn.socket
 
@@ -116,7 +115,7 @@ sudo apt install nginx
             proxy_pass http://unix:/run/gunicorn.sock;
         }
         location /static/ {
-            root /opt/TrLetter/trletter/main/;
+            root /opt/TrLetter/main/;
             expires 1d;
         }
 
